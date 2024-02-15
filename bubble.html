@@ -5,8 +5,45 @@
     <meta name="viewport" content="width=
     , initial-scale=1.0">
     <title>Bubble</title>
+    <style>
+        #item-2{
+            border:2px solid purple;
+        }
+        ul{
+            border:2px solid tomato;
+        }
+        section{
+            border:2px solid blue;
+        }
+        body{
+            border:2px solid green;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Event Bubbling</h1>
+    <section id="bubble">
+        <ul id="list-ul">
+            <li id="item-1">Lorem, ipsum.</li>
+            <li id="item-2">Quibusdam, ipsa.</li>
+            <li id="item-3">Sit, cumque.</li>
+            <li id="item-4">Commodi, impedit.</li>
+            <li id="item-5">Earum, ipsa?</li>
+            <li id="item-6">Quas, ut?</li>
+        </ul>
+    </section>
+    <script>
+        document.getElementById('item-2').addEventListener('click', function(event){
+            console.log('2 clicked');
+            event.stopPropagation();
+        })
+
+        document.getElementById('list-ul').addEventListener('click', function(){
+            console.log('ul clicked');
+        })
+        document.getElementById('bubble').addEventListener('click', function(){
+            console.log('section clicked');
+        })
+    </script>
 </body>
 </html>

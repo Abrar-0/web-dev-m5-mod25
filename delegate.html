@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delegation</title>
+</head>
+<body>
+    <h1>Event Delegate</h1>
+    <section>
+        <ul id="list">
+            <li class="item">Lorem, ipsum dolor.</li>
+            <li class="item">Cum, iste voluptatibus?</li>
+            <li class="item">Enim, quam necessitatibus?</li>
+            <li class="item">Et, harum dolores.</li>
+            <li class="item">Optio, accusantium quae.</li>
+            <li class="item">Error, totam officia!</li>
+        </ul>
+        <button id="btn-add">Add Item</button>
+    </section>
+    <script>
+        // const l = document.getElementsByClassName('item');
+        // for (const item of l){
+        //     item.addEventListener('click',function(event){
+        //         //console.log(event.target.parentNode);
+        //         event.target.parentNode.removeChild(event.target);
+        //     })
+        // }
+
+        document.getElementById('list').addEventListener('click', function(event){
+            event.target.parentNode.removeChild(event.target);
+        })
+
+        //adding dynamically
+        document.getElementById('btn-add').addEventListener('click', function(){
+            const c = document.getElementById('list');
+
+            const li = document.createElement('li');
+            li.innerText='new item';
+            li.classList.add('item');
+            c.append(li);
+        })
+    </script>
+</body>
+</html>
